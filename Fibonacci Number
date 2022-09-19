@@ -1,0 +1,21 @@
+class Solution {
+    private int [] dp = new int[31];
+    public int fib(int N){
+        if (N<=1)
+            return N;
+        if (N==2)
+            return 1;
+        memomize(N);
+        return dp[N];
+        
+    }
+    public int memomize(int N){
+        if (dp[N] !=0)
+            return dp[N];
+        if(N<3)
+            return 1;
+        else
+            dp[N]=memomize(N-1) + memomize(N-2);
+        return memomize(N);
+    }
+}
