@@ -1,0 +1,17 @@
+class Solution {
+    int c=0;
+    public void func(TreeNode root, int max){
+        if(root!=null){
+            if(root.val>=max){
+                max=root.val;
+                c++;
+                }
+            func(root.left,max);
+            func(root.right,max);
+        }
+    }
+    public int goodNodes(TreeNode root) {
+        func(root,root.val);
+        return c;
+    }
+}
